@@ -1,0 +1,325 @@
+/* reset css */
+
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* styles */
+/* TODO: Cambiar la fuente
+
+* {
+  font-family: comic-sans;
+} */
+
+body {
+  background-color: #2e384c;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-letter {
+  position: relative;
+  background-color: #5a759d;
+  z-index: -1;
+}
+
+.container-letter +.open-paper{
+  overflow: visible;
+}
+.cover {
+  position: absolute;
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  border-top: 115px solid #5a759d;
+  border-bottom: 100px solid transparent;
+  
+ 
+  transition: transform .75s;
+  transform-origin: top;
+}
+
+/*  .paper {
+  position: absolute;
+  padding: 1.5rem;
+  line-height: 2rem;
+  right: 5px;
+  
+  z-index: -1;
+  background: white;
+  width: 390px;
+  height: 240px;
+  transition: all .75s;
+  
+} */
+.paper {
+  position: absolute;
+  padding: 1.5rem;
+  line-height: 2rem;
+  right: 5px;
+  
+  z-index: -1;
+  background: white;
+  width: 590px;
+  height: auto;
+  transition: all 0.75s;
+}
+
+.letter {
+  border-left: 300px solid #7a92b6;
+  border-right: 300px solid #7a92b6;
+  border-top: 115px solid transparent;
+  border-bottom: 115px solid #a9b8d0;
+}
+
+.options {
+  display: flex;
+  gap: 5rem;
+}
+button {
+  color: #5a759d;
+  font-weight: 600;
+  border-radius: 3px;
+  background: #2e384c;
+  padding: 0.5rem 1rem;
+  border: 1px solid #4a628a;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #7a92b6;
+  color: #f5f7fa;
+}
+
+.open-cover {
+  transform: rotatex(180deg);
+}
+
+
+.open-paper {
+  animation: openPaper .5s forwards;
+}
+
+@keyframes openPaper {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -220px;
+  }
+}
+
+
+.close-paper {
+  animation: closePaper .5s forwards;
+}
+
+@keyframes closePaper {
+  0% {
+    top: -220px;
+    
+  }
+  100% {
+    top: 0;
+/*       display: none; */
+  }
+}
+
+.center{
+  text-align: center;
+  justify-content: center;
+}
+
+.heart {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 46.5%;
+  margin: auto;
+  font-size: 3rem;
+
+  color: #2e384c;
+
+  animation: crecer 1s forwards ;
+}
+
+@keyframes crecer {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .cover {
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-top: 115px solid #5a759d;
+    border-bottom: 60px solid transparent;
+  }
+
+  .paper {
+    width: 350px;
+    height: auto;
+    padding: 0.8rem;
+    font-size: small;
+    font-weight: 500;
+  }
+
+  .letter {
+    border-left: 180px solid #7a92b6;
+    border-right: 180px solid #7a92b6;
+    border-top: 115px solid transparent;
+    border-bottom: 100px solid #a9b8d0;
+  }
+
+  .options {
+    gap: 2rem;
+  }
+
+  button {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .heart {
+    font-size: 2rem;
+  }
+  @keyframes openPaper {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: -170px;
+    }
+  }
+  
+  
+  .close-paper {
+    animation: closePaper .5s forwards;
+  }
+  
+  @keyframes closePaper {
+    0% {
+      top: -170px;
+      
+    }
+    100% {
+      top: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .cover {
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-top: 115px solid #5a759d;
+    border-bottom: 50px solid transparent;
+  }
+
+  .paper {
+    width: 350px;
+    height: auto;
+    padding: 0.5rem;
+    font-size: xx-small;
+    font-weight: 500;
+  }
+
+  .letter {
+    border-left: 180px solid #7a92b6;
+    border-right: 180px solid #7a92b6;
+    border-top: 115px solid transparent;
+    border-bottom: 80px solid #a9b8d0;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .heart {
+    font-size: 1.8rem;
+  }
+  @keyframes openPaper {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: -160px;
+    }
+  }
+  
+  
+  .close-paper {
+    animation: closePaper .5s forwards;
+  }
+  
+  @keyframes closePaper {
+    0% {
+      top: -160px;
+      
+    }
+    100% {
+      top: 0;
+  /*       display: none; */
+    }
+  }
+}
